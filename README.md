@@ -154,3 +154,9 @@ npm run dev
 | Animations | Framer Motion |
 
 ---
+
+> **Note:** This project uses Groq's free tier LLM. For production-grade AI responses with faster speed and better sales conversations, consider upgrading to a paid model like **GPT-4o** or **Claude Sonnet**.
+
+
+
+
