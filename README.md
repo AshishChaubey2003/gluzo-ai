@@ -1,48 +1,61 @@
+# 🌸 Gluzo AI — Smart Beauty Advisor
+
+AI-powered skincare chatbot that recommends products based on your skin type, concerns & budget.
+
+## 📸 Preview
+
+### Home Page
+![Home](assets/Home.png)
+
+### AI Chat
+![Chat](assets/Chat.png)
+
+### Shop Page
+![Product](assets/Product.png)
+
+### Routine Page
+![Routine](assets/Routine.png)
+
+---
+
 ## 🚀 Getting Started (Clone & Run)
 
-### Step 1 — Install VS Code
-Download from [code.visualstudio.com](https://code.visualstudio.com)
+### Step 1 — Install Required Tools
+- VS Code → [code.visualstudio.com](https://code.visualstudio.com)
+- Python 3.10+ → [python.org](https://python.org)
+- Node.js 18+ → [nodejs.org](https://nodejs.org)
+- Git → [git-scm.com](https://git-scm.com)
 
 ### Step 2 — Clone the Project
 
-Open terminal (Mac: Terminal app, Windows: Command Prompt) and run:
-
+Open terminal and run:
 ```bash
 git clone https://github.com/AshishChaubey2003/gluzo-ai.git
-```
-
-Then open in VS Code:
-```bash
 cd gluzo-ai
 code .
 ```
 
 ### Step 3 — Open Terminal in VS Code
-- Go to **Terminal** menu → **New Terminal**
-- You will see a terminal at the bottom
+Go to **Terminal** menu → **New Terminal**
 
 Now follow the setup steps below 👇
 
 ---
 
-# 🌸 Gluzo AI — Smart Beauty Advisor
+## 🔑 Get Groq API Key (Free — Required)
 
-AI-powered skincare chatbot that recommends products based on your skin type, concerns & budget.
-
----
-
-## ⚙️ What You Need Before Starting
-
-- Python 3.10+ → [python.org](https://python.org)
-- Node.js 18+ → [nodejs.org](https://nodejs.org)
-- Groq API Key (Free) → [groq.com](https://groq.com) → Sign up → API Keys → Create Key
+1. Go to [groq.com](https://groq.com)
+2. Click **Sign Up** (free)
+3. Go to **API Keys** in left menu
+4. Click **Create API Key**
+5. Copy the key — starts with `gsk_...`
 
 ---
 
 ## 🖥️ Windows Setup
 
-### Step 1 — Backend
-Open terminal in the `Backend` folder and run these one by one:
+### Backend
+Open terminal in the `Backend` folder — run one by one:
 
 ```bash
 python -m venv venv
@@ -52,21 +65,18 @@ pip install sentence-transformers
 copy .env.example .env
 ```
 
-Now open `.env` file and add your Groq key:
+Open `.env` file and update:
 LLM_PROVIDER=groq
 LLM_MODEL=llama-3.3-70b-versatile
 GROQ_API_KEY=paste_your_groq_key_here
 
-Start the backend:
+Start backend:
 ```bash
 uvicorn app.main:app --reload --port 8000
 ```
-
 ✅ You should see: `Application startup complete`
 
----
-
-### Step 2 — Frontend
+### Frontend
 Open a **new terminal** in the `frontend` folder:
 
 ```bash
@@ -74,15 +84,14 @@ npm install
 copy .env.example .env.local
 npm run dev
 ```
-
 ✅ Open [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## 🍎 Mac Setup
 
-### Step 1 — Backend
-Open terminal in the `Backend` folder and run these one by one:
+### Backend
+Open terminal in the `Backend` folder — run one by one:
 
 ```bash
 python3 -m venv venv
@@ -92,21 +101,18 @@ pip install sentence-transformers
 cp .env.example .env
 ```
 
-Now open `.env` file and add your Groq key:
+Open `.env` file and update:
 LLM_PROVIDER=groq
 LLM_MODEL=llama-3.3-70b-versatile
 GROQ_API_KEY=paste_your_groq_key_here
 
-Start the backend:
+Start backend:
 ```bash
 uvicorn app.main:app --reload --port 8000
 ```
-
 ✅ You should see: `Application startup complete`
 
----
-
-### Step 2 — Frontend
+### Frontend
 Open a **new terminal** in the `frontend` folder:
 
 ```bash
@@ -114,42 +120,37 @@ npm install
 cp .env.example .env.local
 npm run dev
 ```
-
 ✅ Open [http://localhost:3000](http://localhost:3000)
-
----
-
-## 🔑 How to Get Groq API Key (Free)
-
-1. Go to [groq.com](https://groq.com)
-2. Click **Sign Up** (it's free)
-3. After login, go to **API Keys** in the left menu
-4. Click **Create API Key**
-5. Copy the key (starts with `gsk_...`)
-6. Paste it in your `.env` file
 
 ---
 
 ## ❓ Common Issues
 
 **Backend not starting?**
-- Make sure `(venv)` is showing in your terminal
-- Check that your Groq key is correctly added in `.env`
+- Make sure `(venv)` is showing in terminal
+- Check Groq key is correctly added in `.env`
+- Run: `pip install sentence-transformers`
 
 **Products not loading?**
 - Make sure backend is running on port 8000
-- Check `frontend/.env.local` has: `VITE_API_URL=http://localhost:8000/api/v1`
+- Check `frontend/.env.local` has:
+  `VITE_API_URL=http://localhost:8000/api/v1`
 
 **Chat not working?**
-- Restart the backend after any `.env` changes
+- Restart backend after any `.env` changes
+- Check terminal for error messages
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React + TypeScript + Tailwind CSS
-- **Backend:** FastAPI + Python
-- **AI:** Groq (llama-3.3-70b) — Free & Fast
-- **Search:** FAISS + Sentence Transformers (Free, runs locally)
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React + TypeScript + Tailwind CSS |
+| Backend | FastAPI + Python |
+| AI/LLM | Groq (llama-3.3-70b) — Free & Fast |
+| Search | FAISS + Sentence Transformers |
+| State | Zustand |
+| Animations | Framer Motion |
 
 ---
