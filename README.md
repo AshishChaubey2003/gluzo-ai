@@ -1,3 +1,30 @@
+## 🚀 Getting Started (Clone & Run)
+
+### Step 1 — Install VS Code
+Download from [code.visualstudio.com](https://code.visualstudio.com)
+
+### Step 2 — Clone the Project
+
+Open terminal (Mac: Terminal app, Windows: Command Prompt) and run:
+
+```bash
+git clone https://github.com/AshishChaubey2003/gluzo-ai.git
+```
+
+Then open in VS Code:
+```bash
+cd gluzo-ai
+code .
+```
+
+### Step 3 — Open Terminal in VS Code
+- Go to **Terminal** menu → **New Terminal**
+- You will see a terminal at the bottom
+
+Now follow the setup steps below 👇
+
+---
+
 # 🌸 Gluzo AI — Smart Beauty Advisor
 
 AI-powered skincare chatbot that recommends products based on your skin type, concerns & budget.
