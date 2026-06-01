@@ -45,12 +45,11 @@ export function ProductGrid({
       return;
     }
     productsApi
-      .getAll({ limit: 50 })
+      .getAll({ limit: 50 } as any)
       .then(setProducts)
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [externalProducts]);
-
   const filtered = products.filter((p) => {
     const catOk =
       !category ||
