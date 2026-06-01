@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 class VectorStore:
     def __init__(self):
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
         self.index: Optional[faiss.Index] = None
         self.products: List[Product] = []
         self.id_to_product: dict = {}
