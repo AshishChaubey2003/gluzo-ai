@@ -17,14 +17,20 @@ logger = logging.getLogger(__name__)
 
 class VectorStore:
     def __init__(self):
-        self.model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
+        self._model = None
         self.index: Optional[faiss.Index] = None
         self.products: List[Product] = []
         self.id_to_product: dict = {}
         self.dimension = 384
-
         self.index_path = Path(settings.FAISS_INDEX_PATH)
         self.meta_path = Path(settings.FAISS_INDEX_PATH + "_meta.pkl")
+
+    @property
+    def model(self):
+        if self._model is None:
+            logger.info("Loading sentence transformer model...")
+            self._model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
+        return self._model
 
     async def initialize(self):
         if self.index_path.exists() and self.meta_path.exists():
@@ -60,7 +66,7 @@ class VectorStore:
             documents.append(doc)
 
         logger.info(f"Embedding {len(documents)} products...")
-        vectors = self.model.encode(documents, show_progress_bar=True)
+        vectors = self.model.encode(documents, show_progress_bar=False)
         vectors = np.array(vectors, dtype="float32")
         faiss.normalize_L2(vectors)
 
